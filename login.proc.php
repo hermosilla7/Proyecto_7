@@ -6,7 +6,7 @@
 	$pass_encriptada=md5($_REQUEST['pass']);
 
 	//preparamos la consulta que intenta encontrar el usuario Y la contraseña introducidos
-	$sql = "SELECT * FROM usuario WHERE mail='$_REQUEST[mail]' AND password='$pass_encriptada' and activo = 1";
+	$sql = "SELECT * FROM usuario WHERE mail='$_REQUEST[mail]' AND password='$pass_encriptada'";
 	//ejecutamos la consulta
 	$resultado = mysqli_query($con,$sql);
 
