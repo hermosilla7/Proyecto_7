@@ -81,11 +81,9 @@
 			</div>
 		</div>
 		</div>
-		<!-- <div class="menu">
+		<div class="menu">
 			<ul>
 			  	<li><a href="principal.php">Inicio</a></li>
-		  		<li><a href="clientes_insert.php">Nuevo cliente</a></li>
-		  		<li><a href="clientes_admin.php">Consultar cliente</a></li>
+		  		<li><a href="usuarios_admin.php">Consultar usuario</a></li>
 			</ul>
 		</div>
- -->
