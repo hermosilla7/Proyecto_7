@@ -6,7 +6,7 @@
 	$apellidos = $_SESSION['apellidos'];
 	$telf = $_SESSION['telefono'];
 	$mail = $_SESSION['mail'];
-	include 'conexion.proc.php';
+	include_once 'conexion.proc.php';
 ?>
 <!DOCTYPE html>
 <html>
