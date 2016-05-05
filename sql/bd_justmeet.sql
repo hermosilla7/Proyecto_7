@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2016 a las 09:05:13
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
+-- Tiempo de generación: 05-05-2016 a las 11:36:04
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `bd_justmeet`
@@ -29,7 +29,7 @@ USE `bd_justmeet`;
 --
 
 CREATE TABLE IF NOT EXISTS `complexion` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `complexion` (
 --
 
 CREATE TABLE IF NOT EXISTS `denuncia` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `denunciado` int(11) NOT NULL,
   `denunciante` int(11) NOT NULL,
   `motivo` int(11) NOT NULL
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
 --
 
 CREATE TABLE IF NOT EXISTS `filtro` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `usuario` int(11) NOT NULL,
   `edad_minima` int(11) NOT NULL,
   `edad_maxima` int(11) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `filtro` (
 --
 
 CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `usuario` int(11) NOT NULL,
   `pelo` int(11) NOT NULL,
   `ojos` int(11) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
 --
 
 CREATE TABLE IF NOT EXISTS `foto` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `foto` (
 --
 
 CREATE TABLE IF NOT EXISTS `match` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `usuario_propio` int(11) NOT NULL,
   `usuario_otro` int(11) NOT NULL,
   `tipo` int(11) NOT NULL
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `match` (
 --
 
 CREATE TABLE IF NOT EXISTS `motivo` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `texto` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `motivo` (
 --
 
 CREATE TABLE IF NOT EXISTS `ojos` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `color` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `ojos` (
 --
 
 CREATE TABLE IF NOT EXISTS `pelo` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `color` varchar(20) NOT NULL,
   `longitud` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `pelo` (
 --
 
 CREATE TABLE IF NOT EXISTS `perfil` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `sexo` int(11) NOT NULL,
   `descripcion` text NOT NULL,
   `pelo` int(11) NOT NULL,
@@ -158,9 +158,17 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 CREATE TABLE IF NOT EXISTS `sexo` (
-`id` int(11) NOT NULL,
-  `nombre` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL,
+  `nombre` varchar(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `sexo`
+--
+
+INSERT INTO `sexo` (`id`, `nombre`) VALUES
+(1, 'Hombre'),
+(2, 'Mujer');
 
 -- --------------------------------------------------------
 
@@ -169,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `sexo` (
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_match` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -180,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `tipo_match` (
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -188,8 +196,20 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `mail` varchar(50) NOT NULL,
   `fecha_nacimiento` varchar(50) NOT NULL,
   `perfil` int(11) NOT NULL,
-  `conexion` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `conexion` varchar(30) NOT NULL,
+  `sexo_id` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil`, `conexion`, `sexo_id`) VALUES
+(1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, '', 1),
+(3, 'Marta', 'df', 'a', '', 'a@gmail.com', '1993-12-12', 0, '', 2),
+(5, 'Jose', 'df', '12345', '', 'b@gmail.com', '1993-12-12', 0, '', 1),
+(6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, '', 1),
+(9, 'Lucia', 'df', 'ehgfb', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '', 2);
 
 --
 -- Índices para tablas volcadas
@@ -199,79 +219,81 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Indices de la tabla `complexion`
 --
 ALTER TABLE `complexion`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `filtro`
 --
 ALTER TABLE `filtro`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `filtro_avanzado`
 --
 ALTER TABLE `filtro_avanzado`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `foto`
 --
 ALTER TABLE `foto`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `match`
 --
 ALTER TABLE `match`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `motivo`
 --
 ALTER TABLE `motivo`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `ojos`
 --
 ALTER TABLE `ojos`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `pelo`
 --
 ALTER TABLE `pelo`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `perfil`
 --
 ALTER TABLE `perfil`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `sexo`
 --
 ALTER TABLE `sexo`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tipo_match`
 --
 ALTER TABLE `tipo_match`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail` (`mail`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -281,67 +303,67 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `complexion`
 --
 ALTER TABLE `complexion`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `filtro`
 --
 ALTER TABLE `filtro`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `filtro_avanzado`
 --
 ALTER TABLE `filtro_avanzado`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `foto`
 --
 ALTER TABLE `foto`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `match`
 --
 ALTER TABLE `match`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `motivo`
 --
 ALTER TABLE `motivo`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `ojos`
 --
 ALTER TABLE `ojos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pelo`
 --
 ALTER TABLE `pelo`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `sexo`
 --
 ALTER TABLE `sexo`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tipo_match`
 --
 ALTER TABLE `tipo_match`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
