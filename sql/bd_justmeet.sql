@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2016 a las 11:36:04
+-- Tiempo de generación: 06-05-2016 a las 13:15:10
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -31,7 +31,17 @@ USE `bd_justmeet`;
 CREATE TABLE IF NOT EXISTS `complexion` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `complexion`
+--
+
+INSERT INTO `complexion` (`id`, `nombre`) VALUES
+(1, 'Delgado'),
+(2, 'Normal'),
+(3, 'Fuerte'),
+(4, 'Corpulento');
 
 -- --------------------------------------------------------
 
@@ -104,13 +114,37 @@ CREATE TABLE IF NOT EXISTS `match` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensaje`
+--
+
+CREATE TABLE IF NOT EXISTS `mensaje` (
+  `id` int(11) NOT NULL,
+  `mensaje` text NOT NULL,
+  `usuario1` int(11) NOT NULL,
+  `usuario2` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `motivo`
 --
 
 CREATE TABLE IF NOT EXISTS `motivo` (
   `id` int(11) NOT NULL,
   `texto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `motivo`
+--
+
+INSERT INTO `motivo` (`id`, `texto`) VALUES
+(1, 'Spam'),
+(2, 'Fotos inapropiadas'),
+(3, 'Abuso verbal'),
+(4, 'Perfil falso');
 
 -- --------------------------------------------------------
 
@@ -179,7 +213,16 @@ INSERT INTO `sexo` (`id`, `nombre`) VALUES
 CREATE TABLE IF NOT EXISTS `tipo_match` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipo_match`
+--
+
+INSERT INTO `tipo_match` (`id`, `nombre`) VALUES
+(1, 'Le gustas'),
+(2, 'Te gusta'),
+(3, 'Match');
 
 -- --------------------------------------------------------
 
@@ -206,10 +249,22 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil`, `conexion`, `sexo_id`) VALUES
 (1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, '', 1),
-(3, 'Marta', 'df', 'a', '', 'a@gmail.com', '1993-12-12', 0, '', 2),
-(5, 'Jose', 'df', '12345', '', 'b@gmail.com', '1993-12-12', 0, '', 1),
+(3, 'Marta', 'df', 'a', '827ccb0eea8a706c4c34a16891f84e7b', 'a@gmail.com', '1993-12-12', 0, '', 2),
+(5, 'Jose', 'df', 'josico', '827ccb0eea8a706c4c34a16891f84e7b', 'b@gmail.com', '1993-12-12', 0, '', 1),
 (6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, '', 1),
-(9, 'Lucia', 'df', 'ehgfb', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '', 2);
+(9, 'Lucia', 'df', 'luci', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `voto`
+--
+
+CREATE TABLE IF NOT EXISTS `voto` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `usuario_voto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Índices para tablas volcadas
@@ -249,6 +304,12 @@ ALTER TABLE `foto`
 -- Indices de la tabla `match`
 --
 ALTER TABLE `match`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -296,6 +357,12 @@ ALTER TABLE `usuario`
   ADD UNIQUE KEY `username` (`username`);
 
 --
+-- Indices de la tabla `voto`
+--
+ALTER TABLE `voto`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -303,7 +370,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `complexion`
 --
 ALTER TABLE `complexion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `denuncia`
 --
@@ -330,10 +397,15 @@ ALTER TABLE `foto`
 ALTER TABLE `match`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT de la tabla `motivo`
 --
 ALTER TABLE `motivo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `ojos`
 --
@@ -358,12 +430,17 @@ ALTER TABLE `sexo`
 -- AUTO_INCREMENT de la tabla `tipo_match`
 --
 ALTER TABLE `tipo_match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT de la tabla `voto`
+--
+ALTER TABLE `voto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

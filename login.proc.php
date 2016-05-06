@@ -19,9 +19,10 @@
 		$_SESSION['id']=$datos_usuario['id'];
 		$_SESSION['mail']=$_REQUEST['mail'];
 		$_SESSION['nombre']=$datos_usuario['nombre'];
-		$_SESSION['nivel']=$datos_usuario['usu_nivel'];
+		$_SESSION['apellidos']=$datos_usuario['apellidos'];
+		$_SESSION['sexo_id']=$datos_usuario['sexo_id'];
 		$_SESSION['img']=$datos_usuario['img'];
-
+		//echo $_SESSION['nombre'] . "·" . $_SESSION['apellidos'] . "·" . $_SESSION['sexo_id'];
 		//redirigimos a la página principal
 		header("location: principal.php");
 	} else {

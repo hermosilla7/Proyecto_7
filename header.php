@@ -4,8 +4,8 @@
 	$user_id = $_SESSION['id'];
 	$nom_user = $_SESSION['nombre'];
 	$apellidos = $_SESSION['apellidos'];
-	$telf = $_SESSION['telefono'];
 	$mail = $_SESSION['mail'];
+	$sexo_id = $_SESSION['sexo_id'];
 	include_once 'conexion.proc.php';
 ?>
 <!DOCTYPE html>
@@ -85,6 +85,12 @@
 			<ul>
 			  	<li><a href="principal.php">Inicio</a></li>
 		  		<li><a href="usuarios_admin.php">Consultar usuario</a></li>
+<<<<<<< HEAD
 		  		<li><a href="chat.php">Chat</a></li>
+=======
+		  		<li><a href="match.php">Jugar</a></li>
+		  		<li><a href="perfil_propio.php">Perfil</a></li>
+		  		<li><a href="contacto.php">Contacto</a></li>
+>>>>>>> d269da029fb9a1187f98a2d3a8b6778831f7ae25
 			</ul>
 		</div>
