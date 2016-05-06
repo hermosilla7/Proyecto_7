@@ -86,5 +86,7 @@
 			  	<li><a href="principal.php">Inicio</a></li>
 		  		<li><a href="usuarios_admin.php">Consultar usuario</a></li>
 		  		<li><a href="match.php">Jugar</a></li>
+		  		<li><a href="perfil_propio.php">Perfil</a></li>
+		  		<li><a href="contacto.php">Contacto</a></li>
 			</ul>
 		</div>
