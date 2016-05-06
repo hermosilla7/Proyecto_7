@@ -85,5 +85,6 @@
 			<ul>
 			  	<li><a href="principal.php">Inicio</a></li>
 		  		<li><a href="usuarios_admin.php">Consultar usuario</a></li>
+		  		<li><a href="chat.php">Chat</a></li>
 			</ul>
 		</div>
