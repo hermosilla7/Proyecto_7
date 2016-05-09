@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2016 a las 13:15:10
+-- Tiempo de generación: 09-05-2016 a las 11:39:44
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -55,6 +55,44 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
   `denunciante` int(11) NOT NULL,
   `motivo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `entrada`
+--
+
+CREATE TABLE IF NOT EXISTS `entrada` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `fecha` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `entrada`
+--
+
+INSERT INTO `entrada` (`id`, `usuario_id`, `fecha`) VALUES
+(1, 1, '2016-02-03 10:12:28'),
+(2, 1, '2016-03-01 18:22:41'),
+(3, 1, '2016-03-04 10:30:28'),
+(4, 1, '2016-04-15 19:00:41'),
+(5, 1, '2016-03-23 10:15:00'),
+(6, 1, '2016-03-10 19:23:32'),
+(7, 2, '2016-04-05 10:00:00'),
+(8, 2, '2016-04-05 21:46:00'),
+(9, 2, '2016-04-10 10:00:00'),
+(10, 2, '2016-04-12 21:46:00'),
+(11, 3, '2016-04-01 11:34:00'),
+(12, 3, '2016-04-03 23:48:00'),
+(13, 3, '2016-04-05 04:18:48'),
+(14, 3, '2016-04-25 18:16:24'),
+(15, 4, '2016-03-07 16:00:00'),
+(16, 4, '2016-03-09 17:00:00'),
+(17, 4, '2016-03-11 16:00:00'),
+(18, 2, '2016-04-25 17:00:00'),
+(19, 1, '2016-04-25 17:00:00'),
+(20, 4, '2016-04-25 19:00:00');
 
 -- --------------------------------------------------------
 
@@ -283,6 +321,12 @@ ALTER TABLE `denuncia`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `entrada`
+--
+ALTER TABLE `entrada`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `filtro`
 --
 ALTER TABLE `filtro`
@@ -376,6 +420,11 @@ ALTER TABLE `complexion`
 --
 ALTER TABLE `denuncia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `entrada`
+--
+ALTER TABLE `entrada`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `filtro`
 --
