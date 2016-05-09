@@ -1,6 +1,6 @@
 <?php
 	error_reporting(0);
-	$con = mysqli_connect("localhost", "root", "DAW22015", "bd_justmeet");
+	$con = mysqli_connect("localhost", "root", "", "bd_justmeet");
 
 	//si no se puede realizar la conexión, mostramos error
 	if (!$con) {
