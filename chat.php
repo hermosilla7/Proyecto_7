@@ -8,7 +8,7 @@
     </head>
     <body>
     	<?php
-		//include "header.php";
+		include "header.php";
 		?><div id="cajaChats">
             <div id="chats"></div>
     		<div id="wrapper">
