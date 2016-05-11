@@ -56,8 +56,8 @@
                                             <?php
                                             }else{
                                             ?>
-                                            <span>Hombre</span><input type="radio" value="Hombre" id="sexo" name="sexo">
-                                            <span>Mujer</span><input type="radio" value="Mujer" id="sexo" name="sexo" checked>
+                                            <span>Hombre</span><input type="radio" value="1" id="sexo" name="sexo">
+                                            <span>Mujer</span><input type="radio" value="2" id="sexo" name="sexo" checked>
                                             <?php
                                             }
                                             ?>
