@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2016 a las 08:51:08
+-- Tiempo de generación: 11-05-2016 a las 09:40:05
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -34,6 +34,10 @@ CREATE TABLE IF NOT EXISTS `complexion` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `complexion`:
+--
+
+--
 -- Volcado de datos para la tabla `complexion`
 --
 
@@ -56,6 +60,10 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
   `motivo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELACIONES PARA LA TABLA `denuncia`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +75,10 @@ CREATE TABLE IF NOT EXISTS `entrada` (
   `usuario_id` int(11) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `entrada`:
+--
 
 --
 -- Volcado de datos para la tabla `entrada`
@@ -109,6 +121,10 @@ CREATE TABLE IF NOT EXISTS `filtro` (
   `proximidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELACIONES PARA LA TABLA `filtro`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +140,10 @@ CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
   `complexion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELACIONES PARA LA TABLA `filtro_avanzado`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -135,6 +155,10 @@ CREATE TABLE IF NOT EXISTS `foto` (
   `nombre` varchar(50) NOT NULL,
   `usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `foto`:
+--
 
 -- --------------------------------------------------------
 
@@ -148,6 +172,10 @@ CREATE TABLE IF NOT EXISTS `match` (
   `usuario_otro` int(11) NOT NULL,
   `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `match`:
+--
 
 -- --------------------------------------------------------
 
@@ -163,6 +191,10 @@ CREATE TABLE IF NOT EXISTS `mensaje` (
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- RELACIONES PARA LA TABLA `mensaje`:
+--
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +205,10 @@ CREATE TABLE IF NOT EXISTS `motivo` (
   `id` int(11) NOT NULL,
   `texto` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `motivo`:
+--
 
 --
 -- Volcado de datos para la tabla `motivo`
@@ -194,6 +230,10 @@ CREATE TABLE IF NOT EXISTS `ojos` (
   `id` int(11) NOT NULL,
   `color` varchar(20) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `ojos`:
+--
 
 --
 -- Volcado de datos para la tabla `ojos`
@@ -218,6 +258,10 @@ CREATE TABLE IF NOT EXISTS `pelo_color` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `pelo_color`:
+--
+
+--
 -- Volcado de datos para la tabla `pelo_color`
 --
 
@@ -238,6 +282,10 @@ CREATE TABLE IF NOT EXISTS `pelo_tipo` (
   `id` int(11) NOT NULL,
   `tipo` varchar(25) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `pelo_tipo`:
+--
 
 --
 -- Volcado de datos para la tabla `pelo_tipo`
@@ -268,6 +316,20 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `perfil`:
+--   `complexion_id`
+--       `complexion` -> `id`
+--   `ojos_id`
+--       `ojos` -> `id`
+--   `pelo_color_id`
+--       `pelo_color` -> `id`
+--   `pelo_tipo_id`
+--       `pelo_tipo` -> `id`
+--   `sexo_id`
+--       `sexo` -> `id`
+--
+
+--
 -- Volcado de datos para la tabla `perfil`
 --
 
@@ -287,6 +349,10 @@ CREATE TABLE IF NOT EXISTS `sexo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `sexo`:
+--
+
+--
 -- Volcado de datos para la tabla `sexo`
 --
 
@@ -304,6 +370,10 @@ CREATE TABLE IF NOT EXISTS `tipo_match` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `tipo_match`:
+--
 
 --
 -- Volcado de datos para la tabla `tipo_match`
@@ -332,6 +402,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
+-- RELACIONES PARA LA TABLA `usuario`:
+--
+
+--
 -- Volcado de datos para la tabla `usuario`
 --
 
@@ -353,6 +427,10 @@ CREATE TABLE IF NOT EXISTS `voto` (
   `usuario_id` int(11) NOT NULL,
   `usuario_voto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELACIONES PARA LA TABLA `voto`:
+--
 
 --
 -- Índices para tablas volcadas
