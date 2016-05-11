@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-05-2016 a las 08:26:12
+-- Tiempo de generación: 09-05-2016 a las 11:39:44
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -193,61 +193,19 @@ INSERT INTO `motivo` (`id`, `texto`) VALUES
 CREATE TABLE IF NOT EXISTS `ojos` (
   `id` int(11) NOT NULL,
   `color` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `ojos`
---
-
-INSERT INTO `ojos` (`id`, `color`) VALUES
-(1, 'Azules'),
-(2, 'Verdes'),
-(3, 'Marrones'),
-(4, 'Grises'),
-(5, 'Negros');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pelo_color`
+-- Estructura de tabla para la tabla `pelo`
 --
 
-CREATE TABLE IF NOT EXISTS `pelo_color` (
+CREATE TABLE IF NOT EXISTS `pelo` (
   `id` int(11) NOT NULL,
-  `color` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pelo_color`
---
-
-INSERT INTO `pelo_color` (`id`, `color`) VALUES
-(1, 'Rubio'),
-(2, 'Moreno'),
-(3, 'Castaño'),
-(4, 'Pelirrojo'),
-(5, 'Otro');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pelo_tipo`
---
-
-CREATE TABLE IF NOT EXISTS `pelo_tipo` (
-  `id` int(11) NOT NULL,
-  `tipo` varchar(25) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pelo_tipo`
---
-
-INSERT INTO `pelo_tipo` (`id`, `tipo`) VALUES
-(1, 'Liso'),
-(2, 'Rizado'),
-(3, 'Ondulado'),
-(4, 'Rapado');
+  `color` varchar(20) NOT NULL,
+  `longitud` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -257,22 +215,13 @@ INSERT INTO `pelo_tipo` (`id`, `tipo`) VALUES
 
 CREATE TABLE IF NOT EXISTS `perfil` (
   `id` int(11) NOT NULL,
-  `sexo_id` int(11) NOT NULL,
+  `sexo` int(11) NOT NULL,
   `descripcion` text NOT NULL,
-  `pelo_tipo_id` int(11) NOT NULL,
-  `pelo_color_id` int(11) NOT NULL,
-  `ojos_id` int(11) NOT NULL,
+  `pelo` int(11) NOT NULL,
+  `ojos` int(11) NOT NULL,
   `altura` int(11) NOT NULL,
-  `complexion_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `perfil`
---
-
-INSERT INTO `perfil` (`id`, `sexo_id`, `descripcion`, `pelo_tipo_id`, `pelo_color_id`, `ojos_id`, `altura`, `complexion_id`) VALUES
-(1, 1, 'Hola soy programador PHP y quiero conocer a una programadora de Angular JS.', 1, 2, 1, 175, 1),
-(2, 1, 'Soy técnica de sistemas', 2, 3, 3, 160, 4);
+  `complexion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -327,20 +276,21 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `fecha_nacimiento` varchar(50) NOT NULL,
-  `perfil_id` int(11) NOT NULL,
-  `conexion` varchar(30) NOT NULL
+  `perfil` int(11) NOT NULL,
+  `conexion` varchar(30) NOT NULL,
+  `sexo_id` tinyint(1) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil_id`, `conexion`) VALUES
-(1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, ''),
-(3, 'Marta', 'df', 'a', '827ccb0eea8a706c4c34a16891f84e7b', 'a@gmail.com', '1993-12-12', 0, ''),
-(5, 'Jose', 'df', 'josico', '827ccb0eea8a706c4c34a16891f84e7b', 'b@gmail.com', '1993-12-12', 0, ''),
-(6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, ''),
-(9, 'Lucia', 'df', 'luci', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '');
+INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil`, `conexion`, `sexo_id`) VALUES
+(1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, '', 1),
+(3, 'Marta', 'df', 'a', '827ccb0eea8a706c4c34a16891f84e7b', 'a@gmail.com', '1993-12-12', 0, '', 2),
+(5, 'Jose', 'df', 'josico', '827ccb0eea8a706c4c34a16891f84e7b', 'b@gmail.com', '1993-12-12', 0, '', 1),
+(6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, '', 1),
+(9, 'Lucia', 'df', 'luci', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '', 2);
 
 -- --------------------------------------------------------
 
@@ -419,15 +369,9 @@ ALTER TABLE `ojos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pelo_color`
+-- Indices de la tabla `pelo`
 --
-ALTER TABLE `pelo_color`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `pelo_tipo`
---
-ALTER TABLE `pelo_tipo`
+ALTER TABLE `pelo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -515,22 +459,17 @@ ALTER TABLE `motivo`
 -- AUTO_INCREMENT de la tabla `ojos`
 --
 ALTER TABLE `ojos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `pelo_color`
+-- AUTO_INCREMENT de la tabla `pelo`
 --
-ALTER TABLE `pelo_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT de la tabla `pelo_tipo`
---
-ALTER TABLE `pelo_tipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+ALTER TABLE `pelo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `sexo`
 --

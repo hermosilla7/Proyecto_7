@@ -3,7 +3,34 @@
 	include_once 'header.php';
 	session_start();
 	error_reporting(0);
+
 ?>
+<!-- <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.pwdMeter.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+         
+                $("#password").pwdMeter();
+         
+            });
+    </script>
+    <style>
+        .veryweak{
+            color:#B40404;
+        }
+        .weak{
+            color:#DF7401;
+        }
+        .medium{
+            color:#FFFF00;
+        }
+        .strong{
+            color:#9AFE2E;
+        }
+        .verystrong{
+            color:#0B610B;
+        }
+    </style>
 <!DOCTYPE html>
 <html>
 	<body>
@@ -22,7 +49,7 @@
 						<i class="fa fa-user"></i><input type="text" name="username" class="form-control" placeholder="Nombre de usuario" onblur="validausername()" required><br>
 					</div>
 					<div class="form-group">
-					<i class="fa fa-lock"></i><input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" maxlength="50" required><br>
+					<i class="fa fa-lock"></i><input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" maxlength="50" required><span id="pwdMeter" class="neutral"></span></div>
 					</div>
 					<div class="form-group">
 					<i class="fa fa-lock"></i><input type="password" id="repassword" name="repassword" class="form-control" placeholder="Repetir contraseña"  maxlength="50" onblur="validapass()" required><br>
