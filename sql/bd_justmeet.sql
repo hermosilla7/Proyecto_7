@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2016 a las 12:50:59
+-- Tiempo de generación: 11-05-2016 a las 08:26:12
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -328,20 +328,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `mail` varchar(50) NOT NULL,
   `fecha_nacimiento` varchar(50) NOT NULL,
   `perfil_id` int(11) NOT NULL,
-  `conexion` varchar(30) NOT NULL,
-  `sexo_id` tinyint(1) NOT NULL
+  `conexion` varchar(30) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil_id`, `conexion`, `sexo_id`) VALUES
-(1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, '', 1),
-(3, 'Marta', 'df', 'a', '827ccb0eea8a706c4c34a16891f84e7b', 'a@gmail.com', '1993-12-12', 0, '', 2),
-(5, 'Jose', 'df', 'josico', '827ccb0eea8a706c4c34a16891f84e7b', 'b@gmail.com', '1993-12-12', 0, '', 1),
-(6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, '', 1),
-(9, 'Lucia', 'df', 'luci', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '', 2);
+INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `fecha_nacimiento`, `perfil_id`, `conexion`) VALUES
+(1, 'David', 'Marin Salvador', 'david.marin', '827ccb0eea8a706c4c34a16891f84e7b', 'david.marin@fje.edu', '01/01/1990', 1, ''),
+(3, 'Marta', 'df', 'a', '827ccb0eea8a706c4c34a16891f84e7b', 'a@gmail.com', '1993-12-12', 0, ''),
+(5, 'Jose', 'df', 'josico', '827ccb0eea8a706c4c34a16891f84e7b', 'b@gmail.com', '1993-12-12', 0, ''),
+(6, 'Pepe', 'df', 'gd', '12345', 'c@gmail.cpm', '1993-12-12', 0, ''),
+(9, 'Lucia', 'df', 'luci', '827ccb0eea8a706c4c34a16891f84e7b', 'd@gmail.cpm', '1993-12-12', 0, '');
 
 -- --------------------------------------------------------
 
