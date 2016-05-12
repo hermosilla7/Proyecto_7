@@ -1,0 +1,35 @@
+
+form .form-control {
+  border: 2px solid #cccccc;
+  border-radius: 5em;
+  box-shadow: none;
+  color: #cfcfcf;
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+  padding: 10px 20px;
+  max-width: 200px;
+  display: inline-flex;
+}
+
+.btn-primary {
+  background-color: #c21b17;
+  border-color: #c21b17;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #E89B92;
+  border-color: #E89B92;
+  color: #fff;
+}
+.desc {
+  background: rgba(0, 0, 0, 0) linear-gradient(-25deg, #e99d94 0%, #E8E8E8 74%) repeat scroll 0 0;
+  border-bottom: 3px solid #EAA097;
+  border-radius: 5px;
+  min-height: 400px;
+  padding: 2% 2% 2% 4%;
+}
+.perfimg {
+  text-align: center;
+}

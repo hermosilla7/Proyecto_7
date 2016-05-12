@@ -1,11 +1,11 @@
 <?php
 	include 'conexion.proc.php';
     include_once 'header.php';
-	$usuario_id = $_REQUEST['id'];
-	$consulta_entradas = "SELECT * FROM entrada WHERE usuario_id = $usuario_id ORDER BY fecha DESC";
+	$cliente_id = $_REQUEST['id'];
+	$consulta_entradas = "SELECT * FROM entrada WHERE cliente_id = $cliente_id ORDER BY fecha DESC";
 	$result_entradas = mysqli_query($con, $consulta_entradas);
     //total de visitas
-    $consulta_total_entradas = "SELECT COALESCE(count(id),0)  AS 'total' FROM entrada where usuario_id = $usuario_id";
+    $consulta_total_entradas = "SELECT COALESCE(count(id),0)  AS 'total' FROM entrada where cliente_id = $cliente_id";
     $result_total_entradas = mysqli_query($con, $consulta_total_entradas);
     $entrada_total = mysqli_fetch_array($result_total_entradas);
 
@@ -72,18 +72,18 @@ $(function () {
             data: [
             <?php $db = new Conect_MySql();
             
-            $sql_enero = "SELECT COALESCE(count(id),0) AS 'total_enero' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-01-%'";            
-            $sql_febrero = "SELECT COALESCE(count(id),0)  AS 'total_febrero' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-02-%'"; 
-            $sql_marzo = "SELECT COALESCE(count(id),0)  AS 'total_marzo' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-03-%'"; 
-            $sql_abril = "SELECT COALESCE(count(id),0)  AS 'total_abril' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-04-%'"; 
-            $sql_mayo = "SELECT COALESCE(count(id),0)  AS 'total_mayo' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-05-%'"; 
-            $sql_junio = "SELECT COALESCE(count(id),0)  AS 'total_junio' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-06-%'"; 
-            $sql_julio = "SELECT COALESCE(count(id),0)  AS 'total_julio' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-07-%'"; 
-            $sql_agosto = "SELECT COALESCE(count(id),0)  AS 'total_agosto' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-08-%'"; 
-            $sql_septiembre = "SELECT COALESCE(count(id),0)  AS 'total_septiembre' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-09-%'"; 
-            $sql_octubre = "SELECT COALESCE(count(id),0)  AS 'total_octubre' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-10-%'"; 
-            $sql_noviembre = "SELECT COALESCE(count(id),0)  AS 'total_noviembre' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-11-%'"; 
-            $sql_diciembre = "SELECT COALESCE(count(id),0)  AS 'total_diciembre' FROM entrada WHERE usuario_id = $usuario_id AND fecha like '%-12-%'"; 
+            $sql_enero = "SELECT COALESCE(count(id),0) AS 'total_enero' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-01-%'";            
+            $sql_febrero = "SELECT COALESCE(count(id),0)  AS 'total_febrero' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-02-%'"; 
+            $sql_marzo = "SELECT COALESCE(count(id),0)  AS 'total_marzo' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-03-%'"; 
+            $sql_abril = "SELECT COALESCE(count(id),0)  AS 'total_abril' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-04-%'"; 
+            $sql_mayo = "SELECT COALESCE(count(id),0)  AS 'total_mayo' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-05-%'"; 
+            $sql_junio = "SELECT COALESCE(count(id),0)  AS 'total_junio' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-06-%'"; 
+            $sql_julio = "SELECT COALESCE(count(id),0)  AS 'total_julio' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-07-%'"; 
+            $sql_agosto = "SELECT COALESCE(count(id),0)  AS 'total_agosto' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-08-%'"; 
+            $sql_septiembre = "SELECT COALESCE(count(id),0)  AS 'total_septiembre' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-09-%'"; 
+            $sql_octubre = "SELECT COALESCE(count(id),0)  AS 'total_octubre' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-10-%'"; 
+            $sql_noviembre = "SELECT COALESCE(count(id),0)  AS 'total_noviembre' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-11-%'"; 
+            $sql_diciembre = "SELECT COALESCE(count(id),0)  AS 'total_diciembre' FROM entrada WHERE cliente_id = $cliente_id AND fecha like '%-12-%'"; 
             
             $result_enero = $db->execute($sql_enero);
             $result_febrero = $db->execute($sql_febrero);
