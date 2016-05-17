@@ -69,25 +69,37 @@
                                 <?php
                                 }else{
                                 ?>
-                                <div>
+                                <div class="row">
+                                <div class="col-lg-6">
                                     <form action="" method="POST">
-                                        <fieldset>
-                                            <legend>Edad:</legend>
-                                            <span>18</span><input type="range" min="18" max="65" value="39" onchange="cambiarValorEdadMin(this.value); validarEdadMin(this.value);" id="eMin"><span>65</span>
-                                            <br /><div id="edadMin">39</div><br />
-                                            <span>18</span><input type="range" min="18" max="65" value="40" onchange="cambiarValorEdadMax(this.value); validarEdadMax(this.value);" id="eMax"><span>65</span>
-                                            <br /><div id="edadMax">40</div><br />
+                                        <div class="col-lg-6">
+                                            <legend>Edad minima</legend>
+                                            <span class="min">18</span><span class="max">65</span><input type="range" min="18" max="65" value="39" onchange="cambiarValorEdadMin(this.value); validarEdadMin(this.value);" id="eMin">
+                                            <br /><div class="edadMin" id="edadMin">39</div><br />
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <legend>Edad maxima</legend>
+                                            <span class="min">18</span><span class="max">65</span><input type="range" min="18" max="65" value="40" onchange="cambiarValorEdadMax(this.value); validarEdadMax(this.value);" id="eMax">
+                                            <br /><div class="edadMin"id="edadMax">40</div><br />
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-6">
                                             <legend>Proximidad:</legend>
-                                            <span>1km</span><input type="range" min="1" max="500" onchange="cambiarValorProx(this.value);"><span>500km</span>
-                                            <br /><div id="prox">250km</div><br />
+                                            <span class="min">1km</span><span class="max">500km</span><input type="range" min="1" max="500" onchange="cambiarValorProx(this.value);">
+                                            <br /><div class="edadMin" id="prox">250km</div><br />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-lg-12">
                                             <legend>Sexo:</legend>
                                             <span>Hombre</span><input type="radio" value="Hombre" name="Hombre" selected>
                                             <span>Mujer</span><input type="radio" value="Mujer" name="Mujer">
                                             <br/><br/>
                                             <input type="submit">
-                                        </fieldset>
+                                        
                                     </form>
-                                </div>
+                                
+                            </div>
                                 <?php
                                 }
                                 ?>

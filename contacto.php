@@ -60,16 +60,16 @@
 		<div class="col-md-4 col-sm-4" >
 			<div class="mod-form3">
 				<div class="form-group">
-					<i class="fa fa-user"></i><input type="text" name="nombre" class="form-control" placeholder="Nombre" required <?php if(isset($nom_user)){ echo "value = '".$nom_user."'"; } ?>><br />
+					<i class="fa fa-user"></i><input type="text" name="nombre" class="form-control" placeholder="Nombre" required <?php if(isset($nom_user)){ echo "value = '".$nom_user."'"; } ?><br />
 				</div>
 				<div class="form-group">
-					<i class="fa fa-user"></i><input type="text" name="apellidos" class="form-control" placeholder="Apellidos" required <?php if(isset($apellidos)){ echo "value = '".$apellidos."'"; } ?>><br />
+					<i class="fa fa-user"></i><input type="text" name="apellidos" class="form-control" placeholder="Apellidos" required <?php if(isset($apellidos)){ echo "value = '".$apellidos."'"; } ?><br />
 				</div>
 				<div class="form-group">
-					<i class="fa fa-at"></i><input type="text" name="correo" class="form-control" placeholder="Correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Formato en minúsculas. Ejemplo: info@gmail.com" required <?php if(isset($mail)){ echo "value = '".$mail."'"; } ?>><br />
+					<i class="fa fa-at"></i><input type="text" name="correo" class="form-control" placeholder="Correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Formato en minúsculas. Ejemplo: info@gmail.com" required <?php if(isset($mail)){ echo "value = '".$mail."'"; } ?><br />
 				</div>
 				<div class="form-group">
-					<i class="fa fa-phone"></i><input type="text" name="telefono" class="form-control" placeholder="Teléfono" pattern="[0-9]{9}" title="Formato correcto: 618589666" required <?php if(isset($telf)){ echo "value = '".$telf."'"; } ?>><br />
+					<i class="fa fa-phone"></i><input type="text" name="telefono" class="form-control" placeholder="Teléfono" pattern="[0-9]{9}" title="Formato correcto: 618589666" required <?php if(isset($telf)){ echo "value = '".$telf."'"; } ?><br />
 				</div>
 				<button type="submit" class="btn btn-primary inverse btn-lg" onClick="validar()" name="acce">Enviar</button>
 				<button type="button" class="btn btn-primary inverse btn-lg" onClick="window.location.href='principal.php'">Volver</button>

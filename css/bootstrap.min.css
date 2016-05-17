@@ -45,3 +45,15 @@ body {
   max-height: 314px;
   padding: 2%;
 }
+form .form-control {
+  border: 2px solid #cccccc;
+  border-radius: 5em;
+  box-shadow: none;
+  color: #cfcfcf;
+  font-weight: 300;
+  height: 40px;
+  line-height: 40px;
+  padding: 10px 20px;
+  max-width: 200px;
+  display: inline-flex;
+}

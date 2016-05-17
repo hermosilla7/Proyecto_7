@@ -8,6 +8,17 @@
       img {border-width: 0}
       * {font-family:'Lucida Grande', sans-serif;}
     </style>
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/loginFacebook.js"></script>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.6&appId=1046447695449384";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
   </head>
   <body onload="changePagination('0','first')">
     <div>
@@ -46,7 +57,6 @@ google_ad_height = 90;
 
 </script>
 
-      <hr />
       <?php if(isset($extra)) { // EXTRA WORDS in Theme?>
       <div>
         <?php echo $extra; ?>

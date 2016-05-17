@@ -20,7 +20,7 @@ form .form-control {
 
 .btn-primary:hover {
   background-color: #E89B92;
-  border-color: #E89B92;
+  border-color: #fff;
   color: #fff;
 }
 .desc {
@@ -31,5 +31,13 @@ form .form-control {
   padding: 2% 2% 2% 4%;
 }
 .perfimg {
+  text-align: center;
+}
+.max {
+  float: right;
+}
+.edadMin {
+  color: #cd3f39;
+  font-size: 18px;
   text-align: center;
 }

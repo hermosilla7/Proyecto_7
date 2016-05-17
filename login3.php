@@ -1,4 +1,22 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>Just Meet</title>
+    <!-- <link rel="icon" type="image/png" href="img/logo.png" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/estilo_login.css"/> -->
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/loginFacebook.js"></script>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.6&appId=1046447695449384";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+  </head>
 <?php
+error_reporting(0);
 include('db.php');
 if(isset($_POST['action']))
 {          
@@ -48,46 +66,7 @@ function forgetpassword() {
 }
 </script>
 <style type="text/css">
-input[type=text]
-{
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  width:200px;
-  min-height: 28px;
-  padding: 4px 20px 4px 8px;
-  font-size: 12px;
-  -moz-transition: all .2s linear;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
-}
-input[type=text]:focus
-{
-  width: 200px;
-  border-color: #51a7e8;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1),0 0 5px rgba(81,167,232,0.5);
-  outline: none;
-}
-input[type=password]
-{
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  width:200px;
-  min-height: 28px;
-  padding: 4px 20px 4px 8px;
-  font-size: 12px;
-  -moz-transition: all .2s linear;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
-}
-input[type=password]:focus
-{
-  width: 200px;
-  border-color: #51a7e8;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1),0 0 5px rgba(81,167,232,0.5);
-  outline: none;
-}
+
 .ui-tabs.ui-widget.ui-widget-content.ui-corner-all {
   background: rgba(0, 0, 0, 0) linear-gradient(-25deg, #e99d94 0%, #e8e8e8 74%) repeat scroll 0 0;
 }
@@ -101,35 +80,46 @@ input[type=password]:focus
   color: #212121;
   font-weight: normal;
 }
+.fb_iframe_widget {
+  display: inline-block;
+  position: relative;
+  margin-left: 3%;
+}
 </style>  
   <script>
   $(function() {
     $( "#tabs" ).tabs();
   });
   </script>
+
 </head>
 <body>
  <b>'.$message.'</b>
-<div id="tabs" style="width: 280px;">
-  <ul>
-    <li><a href="#tabs-1">Cambiar la contraseña</a></li>
-    
-  </ul>                 
+ <div class="login-form">
+<div id="tabs">                 
   <div id="tabs-1">
-  <form action="" method="post" id="login">
-    <p><input id="email" name="email" type="text" placeholder="Email"></p>
-    <p><input id="password" name="password" type="password" placeholder="Password">
-    <input name="action" type="hidden" value="login" /></p>
-    <p><input type="submit" value="Login" />&nbsp;&nbsp;<a href="#forget" onclick="forgetpassword();" id="forget">Forget Password?</a></p>
-  </form>
+<form name="f1" action="login.proc.php" method="get">
+        <input type="text" name="mail" class="form-control" placeholder="Correo"maxlength="50">
+            <input type="password" name="pass" class="form-control" placeholder="Contraseña">
+            <button type="submit" class="btn btn-primary inverse btn-lg" name="acce">Entrar</button>
+      </form><br>
+    <fb:login-button scope="public_profile,email,user_hometown,user_birthday" onlogin="checkLoginState();">
+    </fb:login-button>
+            <div class="alerts">
+            <i class="fa fa-lock"></i>
+          <span class="alert">Datos incorrectos</span>
+           <a href="#forget" onclick="forgetpassword();" id="forget">Forget Password?</a>
+           
+          </div>
   <form action="" method="post" id="passwd" style="display:none;">
-    <p><input id="email" name="email" type="text" placeholder="Email to get Password"></p>
-    <input name="action" type="hidden" value="password" /></p>
-    <p><input type="submit" value="Reset Password" /></p>
+    <input id="email" name="email" type="text" class="form-control" placeholder="Email to get Password">
+    <input name="action" type="hidden" value="password" class="form-control"/>
+    <input type="submit" value="Reset Password" class="btn btn-primary inverse btn-lg"/>
   </form>
   </div>
   
   </form>
+  </div>
   </div>
 </div>';
 
@@ -137,3 +127,11 @@ input[type=password]:focus
 $pre = 1;
 include("html.inc");            
 ?>
+    <?php
+    echo "<div class='log-error'>";
+      if(isset($error)){
+        echo "ERROR: " . $error;
+        echo "<br/><br/>";
+      }
+    echo "</div>";
+    ?>  

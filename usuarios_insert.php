@@ -28,7 +28,7 @@
 						Sexo<br>
 					<input id="radio" type="radio" name="sexo" value='1' >Hombre	
 					<input id="radio" type="radio" name="sexo" value='2' >Mujer</br><br>
-					<button type="submit" class="log-btn" onClick="validar()" name="acce">Registrar</button>
+					<button type="submit" class="btn btn-primary inverse btn-lg" onClick="validar()" name="acce">Registrar</button>
 				</form>
 			</div>
 			</div>
