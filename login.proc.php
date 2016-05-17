@@ -7,6 +7,7 @@
 
 	//preparamos la consulta que intenta encontrar el usuario Y la contraseña introducidos
 	$sql = "SELECT * FROM usuario WHERE mail='$_REQUEST[mail]' AND password='$pass_encriptada'";
+	// $sql_2 = "SELECT * FROM sexo WHERE mail='$_REQUEST[mail]' AND password='$pass_encriptada'";
 	//ejecutamos la consulta
 	$resultado = mysqli_query($con,$sql);
 
@@ -20,8 +21,17 @@
 		$_SESSION['mail']=$_REQUEST['mail'];
 		$_SESSION['nombre']=$datos_usuario['nombre'];
 		$_SESSION['apellidos']=$datos_usuario['apellidos'];
-		$_SESSION['sexo_id']=$datos_usuario['sexo_id'];
+		// $_SESSION['sexo_id']=$datos_usuario['sexo_id'];
 		$_SESSION['img']=$datos_usuario['img'];
+		echo "ENTRA";
+		$sql_2 = "SELECT * FROM perfil WHERE usuario=$_SESSION[id]";
+		$resultado2 = mysqli_query($con,$sql_2);
+		if(mysqli_num_rows($resultado2)==1){
+			echo "ENTRA2";
+			$datos_usuario_2=mysqli_fetch_array($resultado2);
+			$_SESSION['sexo']=$datos_usuario_2['sexo_id'];
+			echo($_SESSION['sexo']);
+		}
 		//echo $_SESSION['nombre'] . "·" . $_SESSION['apellidos'] . "·" . $_SESSION['sexo_id'];
 		//redirigimos a la página principal
 		header("location: principal.php");

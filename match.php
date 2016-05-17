@@ -25,23 +25,53 @@
                 <!-- Portfolio Item Heading -->
         <div class="container">
             <?php
-    if ($sexo_id = 1) {
-        echo "HOMBRE";
-    }
-    else{
-        echo "MUJER";
-    }
+
+    $sexo_id = $_SESSION['sexo'];   
+    // if ($sexo_id = 1) {
+    //     echo "HOMBRE";
+    // }
+    // else{
+    //     echo "MUJER";
+    // }
     echo $sexo_id;
 
-    if(isset($_POST['button_si']) || isset($_POST['button_no'])){
-    $sql = "SELECT nombre FROM usuario WHERE sexo_id != 1 ORDER BY RAND() LIMIT 1";
+    //if(isset($_POST['button_si']) || isset($_POST['button_no'])){
+
+    $sql = "SELECT usuario.username AS 'username', 
+    perfil.descripcion AS 'descripcion',
+    TIMESTAMPDIFF(YEAR,perfil.fecha_nacimiento,CURDATE()) AS 'edad'
+    FROM usuario, perfil
+    WHERE perfil.usuario = usuario.id 
+    AND perfil.sexo_id != $sexo_id
+    ORDER BY RAND() 
+    LIMIT 5";
+
+    echo("$sql");
+
     $resultado = mysqli_query($con,$sql);
-    if(mysqli_num_rows($resultado)==1){
-    $datos_usuario=mysqli_fetch_array($resultado);
-    $siguiente = $datos_usuario['nombre'];
-    echo($siguiente);
-    }
-}
+    // $resultado_aux = $resultado;
+    // $datos_usuario=mysqli_fetch_array($resultado);
+    $array_usuarios = array();
+    $i = 0;
+    while ($registro =mysqli_fetch_array($resultado)) {
+        $array_usuarios[$i]['username'] = $registro['username'];
+        $array_usuarios[$i]['edad'] = $registro['edad'];
+        $array_usuarios[$i]['descripcion'] = $registro['descripcion'];
+        $i++;
+    };
+
+    echo "POSICION:";
+    echo "<br>";
+    echo($array_usuarios[0]['username']);
+    echo($array_usuarios[0]['descripcion']);
+    echo "<br>";
+    echo($array_usuarios[1]['username']);
+    echo "<br>";
+    echo($array_usuarios[2]['username']);
+    echo "<br>";
+    echo($array_usuarios[3]['username']);
+    echo "<br>";
+    echo($array_usuarios[4]['username']);
 ?>
 
     <section class="cd-single-item">
@@ -61,9 +91,9 @@
         </div> <!-- cd-slider-wrapper -->
 
         <div class="cd-item-info">
-            <h2>Produt Title</h2>
+            <!-- <h2><?php echo utf8_encode(($datos_usuario['username']) . ', ' . ($datos_usuario['edad']));?></h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione.</p>
+            <p><?php echo utf8_encode($datos_usuario['descripcion']);?></p> -->
                      
         </div> <!-- cd-item-info -->
     </section> <!-- cd-single-item -->
