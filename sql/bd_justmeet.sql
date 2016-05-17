@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2016 a las 09:31:35
--- Versión del servidor: 5.6.26
--- Versión de PHP: 5.6.12
+-- Temps de generació: 17-05-2016 a les 10:41:18
+-- Versió del servidor: 5.6.26
+-- Versió de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_justmeet`
+-- Base de dades: `bd_justmeet`
 --
 CREATE DATABASE IF NOT EXISTS `bd_justmeet` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `bd_justmeet`;
@@ -25,7 +25,7 @@ USE `bd_justmeet`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `complexion`
+-- Estructura de la taula `complexion`
 --
 
 CREATE TABLE IF NOT EXISTS `complexion` (
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `complexion` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `complexion`
+-- Bolcant dades de la taula `complexion`
 --
 
 INSERT INTO `complexion` (`id`, `nombre`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `complexion` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `denuncia`
+-- Estructura de la taula `denuncia`
 --
 
 CREATE TABLE IF NOT EXISTS `denuncia` (
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `denuncia` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `denuncia`
+-- Bolcant dades de la taula `denuncia`
 --
 
 INSERT INTO `denuncia` (`id`, `denunciado`, `denunciante`, `motivo`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `denuncia` (`id`, `denunciado`, `denunciante`, `motivo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `entrada`
+-- Estructura de la taula `entrada`
 --
 
 CREATE TABLE IF NOT EXISTS `entrada` (
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `entrada` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `entrada`
+-- Bolcant dades de la taula `entrada`
 --
 
 INSERT INTO `entrada` (`id`, `usuario_id`, `fecha`) VALUES
@@ -105,7 +105,7 @@ INSERT INTO `entrada` (`id`, `usuario_id`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `filtro`
+-- Estructura de la taula `filtro`
 --
 
 CREATE TABLE IF NOT EXISTS `filtro` (
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `filtro` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `filtro`
+-- Bolcant dades de la taula `filtro`
 --
 
 INSERT INTO `filtro` (`id`, `usuario`, `edad_minima`, `edad_maxima`, `sexo`, `proximidad`) VALUES
@@ -128,7 +128,7 @@ INSERT INTO `filtro` (`id`, `usuario`, `edad_minima`, `edad_maxima`, `sexo`, `pr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `filtro_avanzado`
+-- Estructura de la taula `filtro_avanzado`
 --
 
 CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `foto`
+-- Estructura de la taula `foto`
 --
 
 CREATE TABLE IF NOT EXISTS `foto` (
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `foto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `juego`
+-- Estructura de la taula `juego`
 --
 
 CREATE TABLE IF NOT EXISTS `juego` (
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `juego` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `juego`
+-- Bolcant dades de la taula `juego`
 --
 
 INSERT INTO `juego` (`id`, `usuario_propio`, `usuario_otro`, `tipo`, `fecha`) VALUES
@@ -182,7 +182,7 @@ INSERT INTO `juego` (`id`, `usuario_propio`, `usuario_otro`, `tipo`, `fecha`) VA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mensaje`
+-- Estructura de la taula `mensaje`
 --
 
 CREATE TABLE IF NOT EXISTS `mensaje` (
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `mensaje` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `mensaje`
+-- Bolcant dades de la taula `mensaje`
 --
 
 INSERT INTO `mensaje` (`id`, `mensaje`, `usuario1`, `usuario2`, `fecha`) VALUES
@@ -205,7 +205,7 @@ INSERT INTO `mensaje` (`id`, `mensaje`, `usuario1`, `usuario2`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `motivo`
+-- Estructura de la taula `motivo`
 --
 
 CREATE TABLE IF NOT EXISTS `motivo` (
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `motivo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `motivo`
+-- Bolcant dades de la taula `motivo`
 --
 
 INSERT INTO `motivo` (`id`, `texto`) VALUES
@@ -226,7 +226,7 @@ INSERT INTO `motivo` (`id`, `texto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ojos`
+-- Estructura de la taula `ojos`
 --
 
 CREATE TABLE IF NOT EXISTS `ojos` (
@@ -235,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `ojos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `ojos`
+-- Bolcant dades de la taula `ojos`
 --
 
 INSERT INTO `ojos` (`id`, `color`) VALUES
@@ -248,7 +248,7 @@ INSERT INTO `ojos` (`id`, `color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pelo_color`
+-- Estructura de la taula `pelo_color`
 --
 
 CREATE TABLE IF NOT EXISTS `pelo_color` (
@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `pelo_color` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `pelo_color`
+-- Bolcant dades de la taula `pelo_color`
 --
 
 INSERT INTO `pelo_color` (`id`, `color`) VALUES
@@ -270,7 +270,7 @@ INSERT INTO `pelo_color` (`id`, `color`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pelo_tipo`
+-- Estructura de la taula `pelo_tipo`
 --
 
 CREATE TABLE IF NOT EXISTS `pelo_tipo` (
@@ -279,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `pelo_tipo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `pelo_tipo`
+-- Bolcant dades de la taula `pelo_tipo`
 --
 
 INSERT INTO `pelo_tipo` (`id`, `tipo`) VALUES
@@ -291,7 +291,7 @@ INSERT INTO `pelo_tipo` (`id`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `perfil`
+-- Estructura de la taula `perfil`
 --
 
 CREATE TABLE IF NOT EXISTS `perfil` (
@@ -305,26 +305,44 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `altura` int(11) NOT NULL,
   `complexion_id` int(11) NOT NULL,
   `fecha_nacimiento` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `perfil`
+-- Bolcant dades de la taula `perfil`
 --
 
 INSERT INTO `perfil` (`id`, `usuario`, `sexo_id`, `descripcion`, `pelo_tipo_id`, `pelo_color_id`, `ojos_id`, `altura`, `complexion_id`, `fecha_nacimiento`) VALUES
 (1, 5, 1, 'Hola soy programador PHP y quiero conocer a una programadora de Angular JS.', 1, 2, 1, 175, 1, '1994-05-11 07:02:02'),
 (2, 3, 2, 'Soy técnica de sistemas', 2, 3, 3, 160, 4, '1993-05-11 07:03:01'),
-(3, 9, 2, 'El oscar es un parguelas', 1, 1, 1, 160, 1, '1990-05-10 22:00:00'),
+(3, 9, 2, 'Soy cocinera y me gusta hacer deporte', 1, 1, 1, 160, 1, '2016-05-17 07:40:19'),
 (4, 10, 1, 'Soy un chico que busca gente', 2, 3, 1, 180, 3, '1991-05-10 22:00:00'),
 (5, 11, 1, 'Hola :)', 4, 1, 1, 186, 4, '1996-04-21 22:00:00'),
 (6, 12, 2, 'Busco gente divertida', 3, 2, 3, 165, 1, '1988-05-01 22:00:00'),
 (7, 13, 2, '¿Alguien para quedar?', 3, 3, 2, 171, 0, '1996-05-11 09:28:09'),
-(8, 1, 1, 'Hola soy hetero', 2, 2, 4, 199, 3, '1970-05-10 06:27:38');
+(8, 1, 1, 'Hola soy hetero', 2, 2, 4, 199, 3, '1970-05-10 06:27:38'),
+(9, 5, 1, 'Soy un electricista graduado', 1, 2, 2, 180, 3, '1992-05-17 22:00:00'),
+(10, 6, 1, '', 2, 2, 3, 169, 2, '1989-05-22 22:00:00'),
+(11, 14, 2, 'Me encanta salir de fiesta y conocer gente interesante.', 2, 3, 3, 170, 1, '1996-01-18 23:00:00'),
+(12, 15, 1, 'Soy mecaninco', 1, 2, 1, 190, 3, '1992-07-11 22:00:00'),
+(13, 16, 2, 'Me encanta pasear por la naturaleza', 2, 2, 2, 167, 2, '1990-03-21 23:00:00'),
+(14, 17, 1, 'Me gusta el veranito y el calorcito.', 1, 1, 1, 168, 2, '1987-05-16 22:00:00'),
+(15, 18, 2, 'Busco amistades con las que salir a dar una vuelta', 2, 1, 2, 170, 1, '1993-07-12 22:00:00'),
+(16, 19, 1, 'Soy programador y me encanta el futbol', 2, 2, 1, 180, 2, '1989-08-09 22:00:00'),
+(17, 20, 2, 'Soy Alicia y busco una relació estable', 1, 2, 3, 173, 2, '1993-09-18 22:00:00'),
+(18, 21, 1, 'Me gustan las mujeres sinceras y dispuestas a conocerme', 2, 1, 2, 175, 2, '1996-03-14 23:00:00'),
+(19, 22, 2, 'Me encanta salir a comer fuera y viajar', 2, 1, 2, 190, 1, '1993-05-21 22:00:00'),
+(20, 23, 1, 'Quiero encontrar una relación o amistades', 2, 1, 2, 172, 3, '1988-10-17 22:00:00'),
+(21, 24, 2, 'Me llamo Nerea y me gusta el mambo violento de omega el fuerte', 2, 1, 2, 180, 1, '1997-05-24 22:00:00'),
+(22, 25, 2, 'Me gusta segir las pautas de una relacón de forma locuaz.', 2, 1, 2, 175, 2, '1987-08-31 22:00:00'),
+(23, 26, 2, 'Me llamo Alba y me encanta ir al cine', 1, 2, 3, 165, 2, '1993-02-14 23:00:00'),
+(24, 27, 1, 'Soy un tecnico de sonido', 2, 3, 3, 153, 2, '1995-01-10 23:00:00'),
+(25, 27, 2, 'Quiero salir a esquiar', 1, 2, 2, 165, 2, '1996-12-27 23:00:00'),
+(26, 28, 2, 'Soy nueva en españa y quiero conocer españoles', 2, 1, 2, 156, 2, '1989-12-27 23:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sexo`
+-- Estructura de la taula `sexo`
 --
 
 CREATE TABLE IF NOT EXISTS `sexo` (
@@ -333,7 +351,7 @@ CREATE TABLE IF NOT EXISTS `sexo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `sexo`
+-- Bolcant dades de la taula `sexo`
 --
 
 INSERT INTO `sexo` (`id`, `nombre`) VALUES
@@ -343,7 +361,7 @@ INSERT INTO `sexo` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_match`
+-- Estructura de la taula `tipo_match`
 --
 
 CREATE TABLE IF NOT EXISTS `tipo_match` (
@@ -352,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `tipo_match` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipo_match`
+-- Bolcant dades de la taula `tipo_match`
 --
 
 INSERT INTO `tipo_match` (`id`, `nombre`) VALUES
@@ -363,7 +381,7 @@ INSERT INTO `tipo_match` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de la taula `usuario`
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -377,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Bolcant dades de la taula `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mail`, `conexion`) VALUES
@@ -416,7 +434,7 @@ INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mai
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `voto`
+-- Estructura de la taula `voto`
 --
 
 CREATE TABLE IF NOT EXISTS `voto` (
@@ -426,101 +444,101 @@ CREATE TABLE IF NOT EXISTS `voto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices para tablas volcadas
+-- Indexos per taules bolcades
 --
 
 --
--- Indices de la tabla `complexion`
+-- Index de la taula `complexion`
 --
 ALTER TABLE `complexion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `denuncia`
+-- Index de la taula `denuncia`
 --
 ALTER TABLE `denuncia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `entrada`
+-- Index de la taula `entrada`
 --
 ALTER TABLE `entrada`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `filtro`
+-- Index de la taula `filtro`
 --
 ALTER TABLE `filtro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `filtro_avanzado`
+-- Index de la taula `filtro_avanzado`
 --
 ALTER TABLE `filtro_avanzado`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `foto`
+-- Index de la taula `foto`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `juego`
+-- Index de la taula `juego`
 --
 ALTER TABLE `juego`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `mensaje`
+-- Index de la taula `mensaje`
 --
 ALTER TABLE `mensaje`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `motivo`
+-- Index de la taula `motivo`
 --
 ALTER TABLE `motivo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ojos`
+-- Index de la taula `ojos`
 --
 ALTER TABLE `ojos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pelo_color`
+-- Index de la taula `pelo_color`
 --
 ALTER TABLE `pelo_color`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pelo_tipo`
+-- Index de la taula `pelo_tipo`
 --
 ALTER TABLE `pelo_tipo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `perfil`
+-- Index de la taula `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `sexo`
+-- Index de la taula `sexo`
 --
 ALTER TABLE `sexo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tipo_match`
+-- Index de la taula `tipo_match`
 --
 ALTER TABLE `tipo_match`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuario`
+-- Index de la taula `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
@@ -528,97 +546,97 @@ ALTER TABLE `usuario`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Indices de la tabla `voto`
+-- Index de la taula `voto`
 --
 ALTER TABLE `voto`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT per les taules bolcades
 --
 
 --
--- AUTO_INCREMENT de la tabla `complexion`
+-- AUTO_INCREMENT per la taula `complexion`
 --
 ALTER TABLE `complexion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `denuncia`
+-- AUTO_INCREMENT per la taula `denuncia`
 --
 ALTER TABLE `denuncia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `entrada`
+-- AUTO_INCREMENT per la taula `entrada`
 --
 ALTER TABLE `entrada`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT de la tabla `filtro`
+-- AUTO_INCREMENT per la taula `filtro`
 --
 ALTER TABLE `filtro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `filtro_avanzado`
+-- AUTO_INCREMENT per la taula `filtro_avanzado`
 --
 ALTER TABLE `filtro_avanzado`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `foto`
+-- AUTO_INCREMENT per la taula `foto`
 --
 ALTER TABLE `foto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `juego`
+-- AUTO_INCREMENT per la taula `juego`
 --
 ALTER TABLE `juego`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT de la tabla `mensaje`
+-- AUTO_INCREMENT per la taula `mensaje`
 --
 ALTER TABLE `mensaje`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `motivo`
+-- AUTO_INCREMENT per la taula `motivo`
 --
 ALTER TABLE `motivo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `ojos`
+-- AUTO_INCREMENT per la taula `ojos`
 --
 ALTER TABLE `ojos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT de la tabla `pelo_color`
+-- AUTO_INCREMENT per la taula `pelo_color`
 --
 ALTER TABLE `pelo_color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT de la tabla `pelo_tipo`
+-- AUTO_INCREMENT per la taula `pelo_tipo`
 --
 ALTER TABLE `pelo_tipo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT de la tabla `perfil`
+-- AUTO_INCREMENT per la taula `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
--- AUTO_INCREMENT de la tabla `sexo`
+-- AUTO_INCREMENT per la taula `sexo`
 --
 ALTER TABLE `sexo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `tipo_match`
+-- AUTO_INCREMENT per la taula `tipo_match`
 --
 ALTER TABLE `tipo_match`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT per la taula `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT de la tabla `voto`
+-- AUTO_INCREMENT per la taula `voto`
 --
 ALTER TABLE `voto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
