@@ -33,45 +33,30 @@
     // else{
     //     echo "MUJER";
     // }
-    echo $sexo_id;
+
+$sql_count = "SELECT COUNT(*) FROM juego j WHERE j.usuario_propio = $user_id AND DATE(j.fecha) = DATE(NOW()) ";
+    $resultado = mysqli_query($con,$sql_count);
+    $vistos_hoy =mysqli_fetch_row($resultado)[0];
+    if ($vistos_hoy > 2) {
+        //hacer algo y parar
+    }
 
     //if(isset($_POST['button_si']) || isset($_POST['button_no'])){
-
-    $sql = "SELECT usuario.username AS 'username', 
-    perfil.descripcion AS 'descripcion',
-    TIMESTAMPDIFF(YEAR,perfil.fecha_nacimiento,CURDATE()) AS 'edad'
-    FROM usuario, perfil
-    WHERE perfil.usuario = usuario.id 
-    AND perfil.sexo_id != $sexo_id
-    ORDER BY RAND() 
-    LIMIT 5";
-
-    echo("$sql");
+$sql = "SELECT u.id, u.username AS 'username', 
+    p.descripcion AS 'descripcion',
+    TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) AS 'edad'
+FROM usuario u
+INNER JOIN perfil p ON p.usuario = u.id
+WHERE p.sexo_id != $sexo_id
+AND NOT EXISTS(SELECT * FROM juego j WHERE j.usuario_propio = $user_id AND j.usuario_otro = u.id)
+ORDER BY RAND()
+LIMIT 1";
 
     $resultado = mysqli_query($con,$sql);
-    // $resultado_aux = $resultado;
-    // $datos_usuario=mysqli_fetch_array($resultado);
-    $array_usuarios = array();
-    $i = 0;
-    while ($registro =mysqli_fetch_array($resultado)) {
-        $array_usuarios[$i]['username'] = $registro['username'];
-        $array_usuarios[$i]['edad'] = $registro['edad'];
-        $array_usuarios[$i]['descripcion'] = $registro['descripcion'];
-        $i++;
-    };
+    $usuario_mostrar =mysqli_fetch_assoc($resultado);
 
-    echo "POSICION:";
-    echo "<br>";
-    echo($array_usuarios[0]['username']);
-    echo($array_usuarios[0]['descripcion']);
-    echo "<br>";
-    echo($array_usuarios[1]['username']);
-    echo "<br>";
-    echo($array_usuarios[2]['username']);
-    echo "<br>";
-    echo($array_usuarios[3]['username']);
-    echo "<br>";
-    echo($array_usuarios[4]['username']);
+    var_dump($usuario_mostrar);
+
 ?>
 
     <section class="cd-single-item">
@@ -91,9 +76,9 @@
         </div> <!-- cd-slider-wrapper -->
 
         <div class="cd-item-info">
-            <!-- <h2><?php echo utf8_encode(($datos_usuario['username']) . ', ' . ($datos_usuario['edad']));?></h2>
+            <h2><?php echo utf8_encode(($usuario_mostrar['username']) . ', ' . ($usuario_mostrar['edad']));?></h2>
 
-            <p><?php echo utf8_encode($datos_usuario['descripcion']);?></p> -->
+            <p><?php echo utf8_encode($usuario_mostrar['descripcion']);?></p>
                      
         </div> <!-- cd-item-info -->
     </section> <!-- cd-single-item -->
@@ -103,14 +88,14 @@
         <button type="submit" name="button_si"><img src="img/comprobar.png" alt=""></button>
         <button type="submit" name="button_no"><img src="img/cerrar.png" alt=""></button>
     </form>
-    </section>
-            <div class="row">
+    <!-- </section> -->
+            <!-- <div class="row"> -->
 
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <h3 class="page-header">Related Projects</h3>
-            </div>
+            </div> -->
 
-            <div class="col-sm-3 col-xs-6">
+            <!-- div class="col-sm-3 col-xs-6">
                 <a href="#">
                     <img class="img-responsive portfolio-item" src="img/2.jpg" alt="">
                 </a>
@@ -134,7 +119,7 @@
                 </a>
             </div>
 
-        </div>
+        </div> -->
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
