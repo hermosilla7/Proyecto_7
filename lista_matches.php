@@ -27,11 +27,19 @@
             <?php
 
     $sexo_id = $_SESSION['sexo'];   
+    // if ($sexo_id = 1) {
+    //     echo "HOMBRE";
+    // }
+    // else{
+    //     echo "MUJER";
+    // }
 
     $sql_count = "SELECT COUNT(*) FROM juego j WHERE j.usuario_propio = $user_id AND DATE(j.fecha) = DATE(NOW()) ";
     $resultado = mysqli_query($con,$sql_count);
     $vistos_maximo = 10;
-    $vistos_hoy =mysqli_fetch_row($resultado)[0];  
+    $vistos_hoy =mysqli_fetch_row($resultado)[0];
+    $vistos_restantes = $vistos_maximo-$vistos_hoy;
+    echo ("Puedes jugar: ". $vistos_restantes . " veces más");
     if ($vistos_hoy >= $vistos_maximo) {
         echo("Has superado el límite diario, vuelve mañana para seguir jugando :)");
         throw new \Exception("Exception");
@@ -50,22 +58,19 @@
     $resultado = mysqli_query($con,$sql);
     $usuario_mostrar =mysqli_fetch_assoc($resultado);
 
+    var_dump($usuario_mostrar);
 
     if(isset($_POST['button_si'])){
         $sql_insert_si = "INSERT INTO juego (usuario_propio, usuario_otro, tipo) VALUES ($user_id, $usuario_mostrar[id_mostrar], 1)";
+        echo($sql_insert_si);
         mysqli_query($con,$sql_insert_si);
-        if ($vistos_hoy+1 >= $vistos_maximo) {
-        echo("Has superado el límite diario, vuelve mañana para seguir jugando :)");
-        throw new \Exception("Exception");
-    }
+        echo("CLICK");
     }
     if(isset($_POST['button_no'])){
         $sql_insert_no = "INSERT INTO juego (usuario_propio, usuario_otro, tipo) VALUES ($user_id, $usuario_mostrar[id_mostrar], 2)";
+        echo($sql_insert_no);
         mysqli_query($con,$sql_insert_no);
-        if ($vistos_hoy+1 >= $vistos_maximo) {
-        echo("Has superado el límite diario, vuelve mañana para seguir jugando :)");
-        throw new \Exception("Exception");
-    }
+        echo("CLICK");
     }
 ?>
 
@@ -98,6 +103,38 @@
         <button type="submit" name="button_si"><img src="img/comprobar.png" alt=""></button>
         <button type="submit" name="button_no"><img src="img/cerrar.png" alt=""></button>
     </form>
+    <!-- </section> -->
+            <!-- <div class="row"> -->
+
+            <!-- <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div> -->
+
+            <!-- div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="img/2.jpg" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+        </div> -->
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
