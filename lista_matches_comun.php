@@ -44,16 +44,7 @@
         echo "<br>";
     }
 ?>
-
-
-
-<!--         <div class="cd-item-info">
-            <h2><?php echo utf8_encode(($usuario_mostrar['username']) . ', ' . ($usuario_mostrar['edad']));?></h2>
-
-            <p><?php echo utf8_encode($usuario_mostrar['descripcion']);?></p> -->
-                     
-
-    
+ 
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->

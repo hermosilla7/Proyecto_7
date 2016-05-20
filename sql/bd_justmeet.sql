@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2016 a las 09:31:35
+-- Tiempo de generación: 20-05-2016 a las 11:51:31
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -165,19 +165,23 @@ CREATE TABLE IF NOT EXISTS `juego` (
   `usuario_otro` int(11) NOT NULL,
   `tipo` int(11) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `juego`
 --
 
 INSERT INTO `juego` (`id`, `usuario_propio`, `usuario_otro`, `tipo`, `fecha`) VALUES
-(1, 5, 3, 3, '2016-05-16 21:39:26'),
-(2, 3, 5, 3, '2016-05-16 21:39:26'),
-(3, 3, 10, 1, '2016-05-16 21:39:26'),
-(4, 3, 11, 2, '2016-05-16 21:39:26'),
-(5, 13, 5, 1, '2016-05-16 21:39:26'),
-(6, 12, 5, 2, '2016-05-16 21:39:26');
+(1, 1, 13, 1, '2016-05-19 17:30:40'),
+(2, 13, 1, 1, '2016-05-19 17:30:40'),
+(3, 1, 9, 1, '2016-05-19 17:30:58'),
+(4, 9, 1, 1, '2016-05-19 18:12:30'),
+(5, 1, 20, 2, '2016-05-20 09:05:21'),
+(6, 1, 25, 1, '2016-05-20 09:05:23'),
+(7, 1, 24, 1, '2016-05-20 09:06:16'),
+(8, 1, 28, 1, '2016-05-20 09:06:17'),
+(9, 18, 1, 1, '2016-05-20 09:45:07'),
+(10, 12, 1, 1, '2016-05-20 09:44:54');
 
 -- --------------------------------------------------------
 
@@ -304,22 +308,40 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `ojos_id` int(11) NOT NULL,
   `altura` int(11) NOT NULL,
   `complexion_id` int(11) NOT NULL,
-  `fecha_nacimiento` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `fecha_nacimiento` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `perfil`
 --
 
 INSERT INTO `perfil` (`id`, `usuario`, `sexo_id`, `descripcion`, `pelo_tipo_id`, `pelo_color_id`, `ojos_id`, `altura`, `complexion_id`, `fecha_nacimiento`) VALUES
-(1, 5, 1, 'Hola soy programador PHP y quiero conocer a una programadora de Angular JS.', 1, 2, 1, 175, 1, '1994-05-11 07:02:02'),
-(2, 3, 2, 'Soy técnica de sistemas', 2, 3, 3, 160, 4, '1993-05-11 07:03:01'),
-(3, 9, 2, 'El oscar es un parguelas', 1, 1, 1, 160, 1, '1990-05-10 22:00:00'),
-(4, 10, 1, 'Soy un chico que busca gente', 2, 3, 1, 180, 3, '1991-05-10 22:00:00'),
-(5, 11, 1, 'Hola :)', 4, 1, 1, 186, 4, '1996-04-21 22:00:00'),
-(6, 12, 2, 'Busco gente divertida', 3, 2, 3, 165, 1, '1988-05-01 22:00:00'),
-(7, 13, 2, '¿Alguien para quedar?', 3, 3, 2, 171, 0, '1996-05-11 09:28:09'),
-(8, 1, 1, 'Hola soy hetero', 2, 2, 4, 199, 3, '1970-05-10 06:27:38');
+(1, 5, 1, 'Hola soy programador PHP y quiero conocer a una programadora de Angular JS.', 1, 2, 1, 175, 1, '1994-05-11'),
+(2, 3, 2, 'Soy técnica de sistemas', 2, 3, 3, 160, 4, '1993-05-11'),
+(3, 9, 2, 'Soy cocinera y me gusta hacer deporte', 1, 1, 1, 160, 1, '2016-05-17'),
+(4, 10, 1, 'Soy un chico que busca gente', 2, 3, 1, 180, 3, '1991-05-10'),
+(5, 11, 1, 'Hola :)', 4, 1, 1, 186, 4, '1996-04-21'),
+(6, 12, 2, 'Busco gente divertida', 3, 2, 3, 165, 1, '1988-05-01'),
+(7, 13, 2, '¿Alguien para quedar?', 3, 3, 2, 171, 0, '1996-05-11'),
+(8, 1, 1, 'Hola soy hetero', 2, 2, 4, 199, 3, '1970-05-10'),
+(9, 5, 1, 'Soy un electricista graduado', 1, 2, 2, 180, 3, '1992-05-17'),
+(10, 6, 1, 'Solo se que no se quien soy', 2, 2, 3, 169, 2, '1989-05-22'),
+(11, 14, 2, 'Me encanta salir de fiesta y conocer gente interesante.', 2, 3, 3, 170, 1, '1996-01-18'),
+(12, 15, 1, 'Soy mecaninco', 1, 2, 1, 190, 3, '1992-07-11'),
+(13, 16, 2, 'Me encanta pasear por la naturaleza', 2, 2, 2, 167, 2, '1990-03-21'),
+(14, 17, 1, 'Me gusta el veranito y el calorcito.', 1, 1, 1, 168, 2, '1987-05-16'),
+(15, 18, 2, 'Busco amistades con las que salir a dar una vuelta', 2, 1, 2, 170, 1, '1993-07-12'),
+(16, 19, 1, 'Soy programador y me encanta el futbol', 2, 2, 1, 180, 2, '1989-08-09'),
+(17, 20, 2, 'Soy Alicia y busco una relació estable', 1, 2, 3, 173, 2, '1993-09-18'),
+(18, 21, 1, 'Me gustan las mujeres sinceras y dispuestas a conocerme', 2, 1, 2, 175, 2, '1996-03-14'),
+(19, 22, 2, 'Me encanta salir a comer fuera y viajar', 2, 1, 2, 190, 1, '1993-05-21'),
+(20, 23, 1, 'Quiero encontrar una relación o amistades', 2, 1, 2, 172, 3, '1988-10-17'),
+(21, 24, 2, 'Me llamo Nerea y me gusta el mambo violento de omega el fuerte', 2, 1, 2, 180, 1, '1997-05-24'),
+(22, 25, 2, 'Me gusta segir las pautas de una relacón de forma locuaz.', 2, 1, 2, 175, 2, '1987-08-31'),
+(23, 26, 2, 'Me llamo Alba y me encanta ir al cine', 1, 2, 3, 165, 2, '1993-02-14'),
+(24, 27, 1, 'Soy un tecnico de sonido', 2, 3, 3, 153, 2, '1995-01-10'),
+(25, 28, 2, 'Quiero salir a esquiar', 1, 2, 2, 165, 2, '1995-05-17'),
+(26, 28, 2, 'Soy nueva en españa y quiero conocer españoles', 2, 1, 2, 156, 2, '1989-12-27');
 
 -- --------------------------------------------------------
 
@@ -343,26 +365,6 @@ INSERT INTO `sexo` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_match`
---
-
-CREATE TABLE IF NOT EXISTS `tipo_match` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tipo_match`
---
-
-INSERT INTO `tipo_match` (`id`, `nombre`) VALUES
-(1, 'Le gustas'),
-(2, 'Te gusta'),
-(3, 'Match');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -374,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `conexion` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -411,7 +413,8 @@ INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mai
 (32, 'Melisa', 'Lipans', 'Meli', '827ccb0eea8a706c4c34a16891f84e7b', 'meli@fje.edu', ''),
 (33, 'David', 'Muñoz', 'David', '827ccb0eea8a706c4c34a16891f84e7b', 'dav@fje.edu', ''),
 (34, 'Jorge', 'Andres', 'Jorge', '827ccb0eea8a706c4c34a16891f84e7b', 'jorge@fje.edu', ''),
-(35, 'Lenadro', 'Gorrolis', 'Lean', '827ccb0eea8a706c4c34a16891f84e7b', 'lean@fje.edu', '');
+(35, 'Lenadro', 'Gorrolis', 'Lean', '827ccb0eea8a706c4c34a16891f84e7b', 'lean@fje.edu', ''),
+(42, 'Roger', 'Weed', 'roger.weed', '827ccb0eea8a706c4c34a16891f84e7b', 'roger.weed@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -514,12 +517,6 @@ ALTER TABLE `sexo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tipo_match`
---
-ALTER TABLE `tipo_match`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -571,7 +568,7 @@ ALTER TABLE `foto`
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
@@ -601,22 +598,17 @@ ALTER TABLE `pelo_tipo`
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `sexo`
 --
 ALTER TABLE `sexo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT de la tabla `tipo_match`
---
-ALTER TABLE `tipo_match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT de la tabla `voto`
 --
