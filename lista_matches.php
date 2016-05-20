@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -26,115 +25,35 @@
         <div class="container">
             <?php
 
-    $sexo_id = $_SESSION['sexo'];   
-    // if ($sexo_id = 1) {
-    //     echo "HOMBRE";
-    // }
-    // else{
-    //     echo "MUJER";
-    // }
+    $sql = "SELECT usuario.username as 'username',
+    juego.usuario_otro as 'otro' FROM usuario, juego  
+    LEFT JOIN (SELECT usuario_propio AS 'propio', usuario_otro FROM juego 
+    WHERE juego.usuario_propio != $user_id
+    AND juego.usuario_otro = $user_id
+    AND juego.tipo = 1) AS qryReverso 
+    ON juego.usuario_propio = qryReverso.usuario_otro 
+    WHERE juego.usuario_propio = $user_id
+    AND juego.usuario_otro = propio
+    AND juego.tipo = 1
+    AND usuario.id = juego.usuario_otro";
 
-    $sql_count = "SELECT COUNT(*) FROM juego j WHERE j.usuario_propio = $user_id AND DATE(j.fecha) = DATE(NOW()) ";
-    $resultado = mysqli_query($con,$sql_count);
-    $vistos_maximo = 10;
-    $vistos_hoy =mysqli_fetch_row($resultado)[0];
-    $vistos_restantes = $vistos_maximo-$vistos_hoy;
-    echo ("Puedes jugar: ". $vistos_restantes . " veces más");
-    if ($vistos_hoy >= $vistos_maximo) {
-        echo("Has superado el límite diario, vuelve mañana para seguir jugando :)");
-        throw new \Exception("Exception");
-    }
-
-    $sql = "SELECT u.id AS 'id_mostrar', u.username AS 'username', 
-    p.descripcion AS 'descripcion',
-    TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) AS 'edad'
-    FROM usuario u
-    INNER JOIN perfil p ON p.usuario = u.id
-    WHERE p.sexo_id != $sexo_id
-    AND NOT EXISTS(SELECT * FROM juego j WHERE j.usuario_propio = $user_id AND j.usuario_otro = u.id)
-    ORDER BY RAND()
-    LIMIT 1";
-
+    // echo $sql;
     $resultado = mysqli_query($con,$sql);
-    $usuario_mostrar =mysqli_fetch_assoc($resultado);
-
-    var_dump($usuario_mostrar);
-
-    if(isset($_POST['button_si'])){
-        $sql_insert_si = "INSERT INTO juego (usuario_propio, usuario_otro, tipo) VALUES ($user_id, $usuario_mostrar[id_mostrar], 1)";
-        echo($sql_insert_si);
-        mysqli_query($con,$sql_insert_si);
-        echo("CLICK");
-    }
-    if(isset($_POST['button_no'])){
-        $sql_insert_no = "INSERT INTO juego (usuario_propio, usuario_otro, tipo) VALUES ($user_id, $usuario_mostrar[id_mostrar], 2)";
-        echo($sql_insert_no);
-        mysqli_query($con,$sql_insert_no);
-        echo("CLICK");
+    while ($usuario_mostrar = mysqli_fetch_assoc($resultado)) {        
+        echo($usuario_mostrar['username']);
+        echo "<br>";
     }
 ?>
 
-    <section class="cd-single-item">
-        <div class="cd-slider-wrapper">
-            <ul class="cd-slider">
-                <li class="selected"><img src="img/img-1.jpg" alt="Product Image 1"></li>
-                <li><img src="img/img-2.jpg" alt="Product Image 1"></li>
-                <li><img src="img/img-3.jpg" alt="Product Image 2"></li>
-            </ul> <!-- cd-slider -->
 
-            <ul class="cd-slider-navigation">
-                <li><a href="#0" class="cd-prev inactive">Next</a></li>
-                <li><a href="#0" class="cd-next">Prev</a></li>
-            </ul> <!-- cd-slider-navigation -->
 
-            <a href="#0" class="cd-close">Close</a>
-        </div> <!-- cd-slider-wrapper -->
-
-        <div class="cd-item-info">
+<!--         <div class="cd-item-info">
             <h2><?php echo utf8_encode(($usuario_mostrar['username']) . ', ' . ($usuario_mostrar['edad']));?></h2>
 
-            <p><?php echo utf8_encode($usuario_mostrar['descripcion']);?></p>
+            <p><?php echo utf8_encode($usuario_mostrar['descripcion']);?></p> -->
                      
-        </div> <!-- cd-item-info -->
-    </section> <!-- cd-single-item -->
 
-    <section class="cd-content">
-        <form action='' method='POST'>
-        <button type="submit" name="button_si"><img src="img/comprobar.png" alt=""></button>
-        <button type="submit" name="button_no"><img src="img/cerrar.png" alt=""></button>
-    </form>
-    <!-- </section> -->
-            <!-- <div class="row"> -->
-
-            <!-- <div class="col-lg-12">
-                <h3 class="page-header">Related Projects</h3>
-            </div> -->
-
-            <!-- div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="img/2.jpg" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-        </div> -->
+    
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->

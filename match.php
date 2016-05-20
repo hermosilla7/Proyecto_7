@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -47,6 +46,7 @@
     ORDER BY RAND()
     LIMIT 1";
 
+    // echo($sql);
     $resultado = mysqli_query($con,$sql);
     $usuario_mostrar =mysqli_fetch_assoc($resultado);
 
@@ -95,12 +95,26 @@
 
     <section class="cd-content">
         <form action='' method='POST'>
-        <button type="submit" name="button_si"><img src="img/comprobar.png" alt=""></button>
-        <button type="submit" name="button_no"><img src="img/cerrar.png" alt=""></button>
+        <div class="previous">
+            </div>
+        <button type="submit" name="button_si" id="btn_si"><img src="img/comprobar.png" alt=""></button>
+        <div class="next">
+        </div>
+        <button type="submit" name="button_no" id="btn_no"><img src="img/cerrar.png" alt=""></button>
     </form>
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
+<script>
+$("body").keydown(function(e) {
+  if(e.which == 37) { // left     
+      $("#btn_si").trigger("click");
+  }
+  else if(e.which == 39) { // right     
+      $("#btn_no").trigger("click");
+  }
+});
+</script>
 </body>
 </html>
 </div>
