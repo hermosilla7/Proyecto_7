@@ -91,22 +91,19 @@
 
             <ul class="clearfix demo">
                 <li class="gal"><img src="https://unsplash.it/600/400?image=984"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=983"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=982"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=981"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=980"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=979"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=978"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=977"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=975"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=974"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=980"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=979"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=978"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=977"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=975"/></li>
-                <li class="gal"><img src="https://unsplash.it/600/400?image=974"/></li>
+                <?php
+                $sql_galeria = "SELECT * FROM foto WHERE usuario = $user_id";
+                $resultado = mysqli_query($con, $sql_galeria);
+                while ($imagen = mysqli_fetch_assoc($resultado)) {
+                    ?>
+                    <li class="gal"><img src="<?php echo($imagen['nombre'])?>"></li>
+                    <?php
+                }
+                ?>
             </ul>
+            <?php
+            include "simple.php";
+            ?>
             <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
             <script src="jquery.picEyes.js"></script>
             <script>
