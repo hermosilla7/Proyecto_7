@@ -142,9 +142,9 @@
                                     <div class="thumbnail">
                                         <img src="http://placehold.it/800x500" alt="">
                                         <div class="caption">
-                                            <h3><?php echo $user["nombre"]." ".$user["apellidos"]; ?></h3>
+                                            <h3><?php echo utf8_encode($user["nombre"]." ".$user["apellidos"]);?></h3>
                                             <p>
-                                                <a href="#" class="btn btn-primary">Ver Perfil</a> <a href="#" class="btn btn-default"><?php echo $datosEdad["edad"]." años";  ?></a>
+                                                <a href="perfil_usuario.php?id=<?php echo $datosPerfil[usuario]; ?>" class="btn btn-primary">Ver Perfil</a> <a href="#" class="btn btn-default"><?php echo $datosEdad["edad"]." años";  ?></a>
                                             </p>
                                         </div>
                                     </div>

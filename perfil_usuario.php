@@ -30,9 +30,10 @@
             <div class="col-lg-12">
             <?php
 
+    $usuario_id = $_REQUEST['id'];
     $sql = "SELECT usuario.username AS 'nombre_usuario', perfil.fecha_nacimiento AS 'fecha_nacimiento', perfil.descripcion AS 'descripcion', perfil.altura AS 'altura', complexion.nombre AS 'complexion', ojos.color AS 'color_ojos', pelo_color.color AS 'color_pelo', pelo_tipo.tipo AS 'tipo_pelo', sexo.nombre AS 'sexo'
     FROM usuario, perfil, complexion, pelo_color, pelo_tipo, ojos, sexo
-    WHERE usuario.id = $_SESSION[id]
+    WHERE usuario.id = $usuario_id
     AND perfil.usuario = usuario.id
     AND perfil.complexion_id = complexion.id
     AND perfil.ojos_id = ojos.id
@@ -56,7 +57,7 @@
             <h1><?php echo($datos_usuario['nombre_usuario']);?></h1>
             <?php
                 $sql_perfil = "SELECT * FROM foto 
-                WHERE usuario = $user_id
+                WHERE usuario = $usuario_id
                 AND tipo = 1";
                 $resultado_perfil = mysqli_query($con, $sql_perfil);
                 $foto_mostrar = mysqli_fetch_assoc($resultado_perfil);
@@ -96,7 +97,8 @@
 
             <ul class="clearfix demo">
                 <?php
-                $sql_galeria = "SELECT * FROM foto WHERE usuario = $user_id
+                $sql_galeria = "SELECT * FROM foto 
+                WHERE usuario = $usuario_id
                 AND tipo != 3";
                 $resultado = mysqli_query($con, $sql_galeria);
                 while ($imagen = mysqli_fetch_assoc($resultado)) {
@@ -106,9 +108,6 @@
                 }
                 ?>
             </ul>
-            <?php
-            include "dropzone.php";
-            ?>
             <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
             <script src="jquery.picEyes.js"></script>
             <script>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2016 a las 11:51:31
+-- Tiempo de generación: 23-05-2016 a las 09:29:00
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -150,8 +150,16 @@ CREATE TABLE IF NOT EXISTS `filtro_avanzado` (
 CREATE TABLE IF NOT EXISTS `foto` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `usuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `usuario` int(11) NOT NULL,
+  `tipo` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `foto`
+--
+
+INSERT INTO `foto` (`id`, `nombre`, `usuario`, `tipo`) VALUES
+(15, 'img/usuarios/83f4eb9595ed4ac68ac6c248df40565a.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -165,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `juego` (
   `usuario_otro` int(11) NOT NULL,
   `tipo` int(11) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `juego`
@@ -181,7 +189,9 @@ INSERT INTO `juego` (`id`, `usuario_propio`, `usuario_otro`, `tipo`, `fecha`) VA
 (7, 1, 24, 1, '2016-05-20 09:06:16'),
 (8, 1, 28, 1, '2016-05-20 09:06:17'),
 (9, 18, 1, 1, '2016-05-20 09:45:07'),
-(10, 12, 1, 1, '2016-05-20 09:44:54');
+(10, 12, 1, 1, '2016-05-20 09:44:54'),
+(11, 1, 14, 2, '2016-05-21 18:39:43'),
+(12, 1, 22, 1, '2016-05-21 18:40:00');
 
 -- --------------------------------------------------------
 
@@ -309,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `perfil` (
   `altura` int(11) NOT NULL,
   `complexion_id` int(11) NOT NULL,
   `fecha_nacimiento` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `perfil`
@@ -341,7 +351,8 @@ INSERT INTO `perfil` (`id`, `usuario`, `sexo_id`, `descripcion`, `pelo_tipo_id`,
 (23, 26, 2, 'Me llamo Alba y me encanta ir al cine', 1, 2, 3, 165, 2, '1993-02-14'),
 (24, 27, 1, 'Soy un tecnico de sonido', 2, 3, 3, 153, 2, '1995-01-10'),
 (25, 28, 2, 'Quiero salir a esquiar', 1, 2, 2, 165, 2, '1995-05-17'),
-(26, 28, 2, 'Soy nueva en españa y quiero conocer españoles', 2, 1, 2, 156, 2, '1989-12-27');
+(26, 28, 2, 'Soy nueva en españa y quiero conocer españoles', 2, 1, 2, 156, 2, '1989-12-27'),
+(27, 43, 1, '', 0, 0, 0, 0, 0, '1994-08-27');
 
 -- --------------------------------------------------------
 
@@ -376,7 +387,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(50) NOT NULL,
   `mail` varchar(50) NOT NULL,
   `conexion` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -414,7 +425,8 @@ INSERT INTO `usuario` (`id`, `nombre`, `apellidos`, `username`, `password`, `mai
 (33, 'David', 'Muñoz', 'David', '827ccb0eea8a706c4c34a16891f84e7b', 'dav@fje.edu', ''),
 (34, 'Jorge', 'Andres', 'Jorge', '827ccb0eea8a706c4c34a16891f84e7b', 'jorge@fje.edu', ''),
 (35, 'Lenadro', 'Gorrolis', 'Lean', '827ccb0eea8a706c4c34a16891f84e7b', 'lean@fje.edu', ''),
-(42, 'Roger', 'Weed', 'roger.weed', '827ccb0eea8a706c4c34a16891f84e7b', 'roger.weed@gmail.com', '');
+(42, 'Roger', 'Weed', 'roger.weed', '827ccb0eea8a706c4c34a16891f84e7b', 'roger.weed@gmail.com', ''),
+(43, 'raul', 'calvo ramirez', 'hanek94', '81dc9bdb52d04dc20036dbd8313ed055', 'fcb_raul@hotmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -563,12 +575,12 @@ ALTER TABLE `filtro_avanzado`
 -- AUTO_INCREMENT de la tabla `foto`
 --
 ALTER TABLE `foto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
@@ -598,7 +610,7 @@ ALTER TABLE `pelo_tipo`
 -- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `sexo`
 --
@@ -608,7 +620,7 @@ ALTER TABLE `sexo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `voto`
 --

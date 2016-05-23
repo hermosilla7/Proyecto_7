@@ -1,10 +1,10 @@
 <?php
 
-include_once 'bootstrap.php';
+include_once 'globales.php';
 
 if (isset($_FILES['file'])) {
 	$nombre_archivo = gen_uuid().'.jpg';
-	$ruta_archivo = 'img/' . $nombre_archivo;
+	$ruta_archivo = 'img/usuarios/' . $nombre_archivo;
 	if (move_uploaded_file($_FILES['file']['tmp_name'], $ruta_archivo)) {
 		$sql = "INSERT INTO foto (nombre, usuario, tipo) VALUES ('$ruta_archivo', $user_id, 2)";
 		if (!mysqli_query($con, $sql)) {

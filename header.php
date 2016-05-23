@@ -1,5 +1,5 @@
 <?php
-	include_once 'bootstrap.php';
+	include_once 'globales.php';
 ?>
 <!DOCTYPE html>
 <html>
