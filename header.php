@@ -80,7 +80,7 @@
                 <li class="sidebar-brand"><a href="principal.php">Meet</a></li>
 		  		<li><a href="chat.php">Chat</a></li>
 		  		<li><a href="match.php">Jugar</a></li>
-
+				<li><a href="lista_matches_comun.php">Notificaciones</a></li>
 		  		<li><a href="contacto.php">Contacto</a></li>
 				<li><a href="logout.proc.php">Cerrar sesion</a></li>
 			</ul>

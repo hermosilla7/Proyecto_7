@@ -68,40 +68,10 @@
     }
     }
 ?>
+<?php
+    include_once 'sliderm.php';
+?>
 
-    <section class="cd-single-item">
-        <div class="cd-slider-wrapper">
-            <ul class="cd-slider">
-                <li class="selected"><img src="img/img-1.jpg" alt="Product Image 1"></li>
-                <li><img src="img/img-2.jpg" alt="Product Image 1"></li>
-                <li><img src="img/img-3.jpg" alt="Product Image 2"></li>
-            </ul> <!-- cd-slider -->
-
-            <ul class="cd-slider-navigation">
-                <li><a href="#0" class="cd-prev inactive">Next</a></li>
-                <li><a href="#0" class="cd-next">Prev</a></li>
-            </ul> <!-- cd-slider-navigation -->
-
-            <a href="#0" class="cd-close">Close</a>
-        </div> <!-- cd-slider-wrapper -->
-
-        <div class="cd-item-info">
-            <h2><?php echo utf8_encode(($usuario_mostrar['username']) . ', ' . ($usuario_mostrar['edad']));?></h2>
-
-            <p><?php echo utf8_encode($usuario_mostrar['descripcion']);?></p>
-                     
-        </div> <!-- cd-item-info -->
-    </section> <!-- cd-single-item -->
-
-    <section class="cd-content">
-        <form action='' method='POST'>
-        <div class="previous">
-            </div>
-        <button type="submit" name="button_si" id="btn_si"><img src="img/comprobar.png" alt=""></button>
-        <div class="next">
-        </div>
-        <button type="submit" name="button_no" id="btn_no"><img src="img/cerrar.png" alt=""></button>
-    </form>
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->

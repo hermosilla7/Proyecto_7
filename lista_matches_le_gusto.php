@@ -23,21 +23,56 @@
         <div class="container-fluid">
                 <!-- Portfolio Item Heading -->
         <div class="container">
-            <?php
-
+ <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Matches</h1>
+            </div>
+        </div>
+        <div class="menumatch">
+        <a href="lista_matches_comun.php"><div class="secc">
+        Matches</div></a>
+        <a href="lista_matches_le_gusto.php"><div class="secc" id="active">
+        Le gustas</div></a>
+        <a href="lista_matches_me_gusta.php"><div class="secc"  >
+        Te gustan</div></a>
+        </div>
+        <hr>
+        <!-- /.row -->
+        <?php
     $sql = "SELECT usuario.username AS 'username' 
     FROM juego, usuario
     WHERE juego.usuario_otro = 1
     AND juego.tipo = 1
     AND juego.usuario_propio = usuario.id";
-
-    // echo $sql;
+   // echo $sql;
     $resultado = mysqli_query($con,$sql);
     while ($usuario_mostrar = mysqli_fetch_assoc($resultado)) {        
-        echo($usuario_mostrar['username']);
-        echo "<br>";
+  
+    ?> 
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+            <a href="#">
+                <?php
+                $sql_perfil = "SELECT * FROM foto, perfil 
+                WHERE foto.usuario = $usuario_mostrar[id_usuario]
+                AND foto.tipo = 1
+                AND perfil.usuario = $usuario_mostrar[id_usuario]";
+                $resultado_perfil = mysqli_query($con, $sql_perfil);
+                $foto_mostrar = mysqli_fetch_assoc($resultado_perfil);
+            ?>
+                    <img class="img-responsive" src="img/interrogante.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+        <h3><?php echo($usuario_mostrar['username']);?></h3>
+        <?php echo "<br>";?>
+        </div>
+        </div>
+        <hr>
+        <?php
     }
-?>
+?>   
  
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
